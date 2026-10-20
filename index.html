@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lili Doces & Mimos</title>
+    <link rel="icon" type="image/jpeg" href="assets/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="carregando">
+
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="spinner"></div>
+            <h1>Lili</h1>
+            <p>Preparando Mimos...</p>
+        </div>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo-container">
+                <img src="assets/logo.png" alt="Lili Doces & Mimos">
+            </a>
+            <nav>
+                <ul class="nav-list">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="galeria.html">Galeria</a></li> <li><a href="#encomenda">Como Encomendar</a></li>
+                </ul>
+            </nav>
+           <div class="nav-cta" style="display: flex; align-items: center; gap: 15px;">
+                <button id="theme-toggle" class="theme-btn">
+    <i class="ri-moon-line" id="theme-icon"></i>
+</button>
+                <a href="#cardapio" class="btn-primary">Ver Mimos</a>
+                
+                <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Abrir Menu">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="menu-backdrop" class="menu-backdrop"></div>
+
+    <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1ea381?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content" data-aos="fade-up">
+            <h2 class="hero-title">Adoçando histórias,<br>celebrando momentos.</h2>
+            <p class="hero-subtitle">Confeitaria artesanal de luxo, feita com amor.</p>
+            <div class="hero-btns">
+                <a href="#cardapio" class="btn-primary">Descubra nosso cardápio</a>
+            </div>
+        </div>
+        <a href="#historia" class="hero-scroll-down"><i class="ri-arrow-down-s-line"></i></a>
+    </section>
+
+    <section id="historia" class="historia">
+        <div class="container historia-grid">
+            <div class="historia-img" data-aos="fade-right">
+                <img src="assets/img/lili-provi.jpeg" alt="Lili, a alma da confeitaria">
+                <div class="historia-quote">
+                    <p>"Cada doce é um segredo, um abraço saboroso." - Lili</p>
+                </div>
+            </div>
+            <div class="historia-text" data-aos="fade-left">
+                <span class="section-tag">A Alma do Negócio</span>
+                <h2 class="section-title">Lili, uma Vida Dedicada ao Açúcar</h2>
+                <p>Muito prazer, eu sou a Eliane (mais chamada de Lili). Minha jornada com os doces começou quando comecei me aventurar ajudando minha irmã nos doces para minha família, um lugar onde a farinha e o açúcar eram mais que ingredientes, eram memórias em formação.</p>
+                <p>A Lili Doces & Mimos nasceu não apenas de uma paixão, mas da vontade de levar a cremosidade inigualável e a textura aveludada que aperfeiçoei ao longo de décadas para a mesa de cada família.</p>
+                <p>Aqui na Lili, não vendemos apenas doces, vendemos momentos de pausa, celebrações genuínas e a promessa de um sabor que toca a alma. Cada mimos que você leva é feito pessoalmente por mim, com os melhores ingredientes nobres e a mesma dedicação que dedico aos meu próprio filho.</p>
+                <div class="historia-cta">
+                    <a href="#cardapio" class="btn-secondary">Confira o sabor da minha paixão</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cardapio" class="cardapio">
+        <div class="container">
+            <div class="cardapio-header text-center" data-aos="fade-up">
+                <span class="section-tag">Coleção Lili Doces</span>
+                <h2 class="section-title">Nossas Criações Exclusivas</h2>
+                <p class="section-subtitle">Descubra os mimos mais pedidos. Trabalhamos sob encomenda para garantir um sabor fresco, autêntico e do jeitinho que você sonhou.</p>
+            </div>
+            
+            <div class="cardapio-filters" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="bolos">Bolos Recheados</button>
+                <button class="filter-btn" data-filter="caseirinhos">Bolos Caseirinhos</button>
+                <button class="filter-btn" data-filter="docinhos">Docinhos</button>
+                <button class="filter-btn" data-filter="sobremesas">Sobremesas</button>
+                <button class="filter-btn" data-filter="personalizados">Personalizados</button>
+            </div>
+
+            <div class="grid-produtos" id="grid-produtos">
+                </div>
+        </div>
+    </section>
+    
+    <section id="encomenda" class="encomenda">
+        <div class="container text-center encomendar-steps">
+            <h2 class="section-title text-center" data-aos="fade-up">Como Receber seu Mimos</h2>
+            <div class="steps-grid">
+                <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-icon"><i class="ri-survey-line"></i></div>
+                    <h3>Escolha no Site</h3>
+                    <p>Explore nosso cardápio e selecione a categoria que deseja.</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-icon"><i class="ri-whatsapp-line"></i></div>
+                    <h3>Chame no WhatsApp</h3>
+                    <p>Clique no botão do doce escolhido para combinarmos os detalhes.</p>
+                </div>
+                <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-icon"><i class="ri-calendar-check-line"></i></div>
+                    <h3>Personalize e Agende</h3>
+                    <p>Definiremos juntos o sabor, o tamanho ideal e a data da entrega.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <img src="assets/logo.png" alt="Lili Doces & Mimos">
+                <p>Criando mimos desde 2012.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Siga-nos</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/lilidocesemimos_" target="_blank" rel="noopener noreferrer" aria-label="Instagram Lili Doces"><i class="ri-instagram-line"></i></a>
+                    <a href="https://www.facebook.com/profile.php" target="_blank" rel="noopener noreferrer" aria-label="Facebook Lili Doces"><i class="ri-facebook-box-line"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Lili Doces & Mimos. Todos os direitos reservados. Feito com amor em São Paulo.</p>
+        </div>
+    </footer>
+
+    <div id="produto-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" aria-label="Fechar">&times;</button>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <img id="modal-img" src="" alt="Imagem do doce">
+                    </div>
+                <div class="modal-info">
+                    <span class="modal-tag" id="modal-tag">Categoria</span>
+                    <h3 id="modal-titulo">Nome do Doce</h3>
+                    <div class="modal-price-stock">
+                        <p class="preco" id="modal-preco">Valores a combinar</p>
+                        <p class="stock-status" id="modal-stock"><i class="ri-time-line"></i> Produção Artesanal</p>
+                    </div>
+                    <div class="modal-description-section">
+                        <h4>A Experiência de Sabor:</h4>
+                        <p id="modal-descricao">Descrição detalhada do doce aqui.</p>
+                    </div>
+                    <div class="modal-details">
+                        <h4>Detalhes do Pedido:</h4>
+                        <p><strong>Observação:</strong> <span id="modal-ingredientes">Este doce é preparado sob encomenda.</span></p>
+                        
+                        <p id="wrapper-peso"><strong>Peso/Tamanho:</strong> <span id="modal-peso">A combinar</span></p>
+                        <p id="wrapper-rendimento"><strong>Rendimento:</strong> <span id="modal-rendimento">A combinar</span></p>
+                    </div>
+                    
+                    <div id="modal-opcoes-tamanho" style="display: none; margin-top: 15px; margin-bottom: 20px; text-align: left;">
+                        <label for="select-tamanho" style="display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-color, #333);">Selecione o tamanho para o Bolo de Festa:</label>
+                        <select id="select-tamanho" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-family: inherit; font-size: 0.95rem; background-color: #fff; color: #333; outline: none; cursor: pointer;">
+                            <option value="P (1.5kg - 12 a 15 fatias)">Tamanho P (1.5kg - 12 a 15 fatias)</option>
+                            <option value="M (2.5kg - 17 a 21 fatias)">Tamanho M (2.5kg - 17 a 21 fatias)</option>
+                            <option value="G (3.2kg - 22 a 27 fatias)">Tamanho G (3.2kg - 22 a 27 fatias)</option>
+                            <option value="GG (5kg - 30 a 35 fatias)">Tamanho GG (5kg - 30 a 35 fatias)</option>
+                        </select>
+                    </div>
+
+                    <button id="btn-comprar" class="btn-whatsapp-large">
+                        <i class="ri-whatsapp-line"></i> Combinar Detalhes no WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, easing: 'ease-out-quad', once: true });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

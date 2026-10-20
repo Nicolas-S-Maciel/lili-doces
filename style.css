@@ -1,0 +1,908 @@
+/* --- Variáveis e Definições de Marca (Extraídas da Logo) --- */
+:root {
+    --verde-primario: #1a4f35; /* O verde escura da logo */
+    --verde-escuro: #113524;
+    --fundo-creme: #f7f3ee; /* O fundo creme da logo */
+    --fundo-creme-escura: #eae6df;
+    --texto-primario: #2c2c2c;
+    --texto-secundario: #555555;
+    --branco: #ffffff;
+    --sombra-leve: 0 4px 15px rgba(0,0,0,0.05);
+    --sombra-forte: 0 10px 40px rgba(0,0,0,0.1);
+    
+    /* Tipografia (Gourmet) */
+    --fonte-serif: 'Playfair Display', serif;
+    --fonte-sans: 'Montserrat', sans-serif;
+}
+
+/* --- Reset e Base (Advanced Reset) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Rolagem suave */
+}
+
+body {
+    font-family: var(--fonte-sans);
+    background-color: var(--fundo-creme);
+    color: var(--texto-primario);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita rolagem horizontal acidental */
+}
+
+/* Classe para o corpo durante o preloader */
+body.carregando {
+    overflow: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--fonte-serif);
+    color: var(--verde-primario);
+    font-weight: 700;
+}
+
+a { text-decoration: none; color: inherit; transition: all 0.3s; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+button { background: none; border: none; cursor: pointer; font-family: inherit; }
+
+/* --- Utilitários (Big Company approach) --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.text-center { text-align: center; }
+
+.section-tag {
+    display: block;
+    font-family: var(--fonte-sans);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--verde-primario);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Botões de Luxo --- */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background-color: var(--verde-primario);
+    color: var(--fundo-creme);
+    border: 2px solid var(--verde-primario);
+}
+
+.btn-primary:hover {
+    background-color: var(--verde-escuro);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-forte);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--verde-primario);
+    border: 2px solid var(--verde-primario);
+}
+
+.btn-secondary:hover {
+    background-color: var(--verde-primario);
+    color: var(--fundo-creme);
+}
+
+/* --- Preloader (Avançado) --- */
+.preloader {
+    display: none !important;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--fundo-creme);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s ease-out;
+}
+
+.preloader-content { text-align: center; }
+.preloader-content h1 { font-size: 3rem; color: var(--verde-primario); }
+.preloader-content p { color: var(--texto-secundario); margin-top: 1rem; }
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--verde-primario);
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- Cabeçalho (Header) Melhora --- */
+header {
+    background-color: rgba(247, 243, 238, 0.9); /* Creme semi-transparente */
+    padding: 1rem 0;
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Efeito de vidro borrado */
+    transition: all 0.3s;
+}
+
+header.scroll-active {
+    padding: 0.5rem 0;
+    box-shadow: var(--sombra-leve);
+}
+
+.header-container {
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.logo-container img { height: 70px; width: auto; transition: height 0.3s; }
+header.scroll-active .logo-container img { height: 50px; }
+
+.nav-list {
+    display: flex; gap: 2rem;
+}
+
+.nav-list a {
+    font-weight: 500;
+    color: var(--texto-primario);
+    font-size: 0.95rem;
+}
+
+.nav-list a:hover { color: var(--verde-primario); }
+
+/* --- Hero Section Parallax --- */
+.hero {
+    height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito Parallax */
+    position: relative;
+    color: var(--branco);
+}
+
+.hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(26,79,53,0.8) 0%, rgba(17,53,36,0.5) 100%);
+}
+
+.hero-content {
+    position: relative; z-index: 1;
+    max-width: 800px;
+}
+
+.hero-title {
+    color: var(--branco); font-size: 4rem; margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.4rem; font-weight: 300; margin-bottom: 3rem;
+}
+
+.hero-scroll-down {
+    position: absolute; bottom: 30px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem; color: var(--branco);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-10px) translateX(-50%); }
+    60% { transform: translateY(-5px) translateX(-50%); }
+}
+
+/* --- Seção História - Nova --- */
+.historia { padding: 8rem 0; }
+
+.historia-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+
+.historia-img {
+    position: relative;
+}
+
+.historia-img img {
+    width: 100%; border-radius: 20px;
+    box-shadow: var(--sombra-forte);
+}
+
+.historia-quote {
+    position: absolute; bottom: -30px; right: -30px;
+    background-color: var(--verde-primario);
+    color: var(--fundo-creme);
+    padding: 20px 30px;
+    border-radius: 15px;
+    font-style: italic; font-weight: 500;
+    max-width: 300px;
+    box-shadow: var(--sombra-forte);
+}
+
+.historia-text { padding-left: 2rem; }
+
+.historia-text p { margin-bottom: 1.5rem; color: var(--texto-secundario); font-size: 1.1rem; }
+
+.historia-cta { margin-top: 2.5rem; }
+
+/* --- Seção Cardápio - Melhorada --- */
+.cardapio {
+    padding: 8rem 0; background-color: var(--branco);
+}
+
+.cardapio-header { margin-bottom: 4rem; }
+
+.cardapio-filters {
+    display: flex; justify-content: center; gap: 1rem; margin-bottom: 4rem;
+}
+
+.filter-btn {
+    font-weight: 600; color: var(--texto-secundario);
+    padding: 10px 20px; border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover { color: var(--verde-primario); }
+.filter-btn.active { background-color: var(--verde-primario); color: var(--fundo-creme); }
+
+.grid-produtos {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+/* --- Card de Produto de Luxo (Advanced Hover) --- */
+.card {
+    background-color: var(--branco); border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--sombra-leve);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra-forte);
+}
+
+/* AQUI ESTÁ O TAMANHO PERFEITO DAS FOTOS DOS CARDS */
+.card-img-container {
+    width: 100%; 
+    height: 280px; /* Altura ideal escolhida */
+    overflow: hidden;
+    position: relative;
+}
+
+.card img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center; /* Garante que o doce não seja cortado */
+    transition: transform 0.8s ease;
+}
+
+.card:hover img { transform: scale(1.1); }
+
+.card-info { padding: 2rem; }
+
+.card-info h3 { font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--verde-primario); }
+
+.card-info .preco-card {
+    font-weight: 700; color: var(--verde-primario); font-size: 1.2rem;
+    display: block; margin-bottom: 1rem;
+}
+
+.card-btn {
+    text-align: center; color: var(--verde-primario);
+    font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+    font-size: 0.8rem;
+    opacity: 0.8; transition: opacity 0.3s;
+}
+
+.card:hover .card-btn { opacity: 1; color: var(--verde-escuro); }
+
+/* --- Seção Encomenda (Steps) --- */
+.encomenda { padding: 8rem 0; background-color: var(--fundo-creme); }
+
+.encomendar-steps .section-title { margin-bottom: 4rem; }
+
+.steps-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem;
+}
+
+.step-card {
+    background-color: var(--branco); padding: 3rem; border-radius: 15px;
+    box-shadow: var(--sombra-leve);
+    transition: all 0.3s;
+}
+
+.step-card:hover { transform: translateY(-5px); box-shadow: var(--sombra-forte); }
+
+.step-icon {
+    font-size: 3rem; color: var(--verde-primario); margin-bottom: 1.5rem;
+}
+
+.step-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+
+/* --- Footer --- */
+footer {
+    padding: 6rem 0 2rem;
+    background-color: var(--fundo-creme-escura);
+}
+
+.footer-container {
+    display: grid; grid-template-columns: 2fr 1fr; gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-logo img { height: 80px; width: auto; margin-bottom: 1rem; }
+.footer-logo p { color: var(--texto-secundario); font-size: 0.9rem; }
+
+.footer-contact h3 { font-size: 1.2rem; margin-bottom: 1rem; }
+.social-links { display: flex; gap: 1.5rem; font-size: 1.8rem; color: var(--verde-primario); }
+.social-links a:hover { transform: scale(1.1); }
+
+.footer-bottom { border-top: 1px solid rgba(0,0,0,0.05); padding-top: 2rem; font-size: 0.85rem; color: var(--texto-secundario); }
+
+/* --- Modal do Produto de Luxo (Advanced layout) --- */
+.modal {
+    display: none; position: fixed; z-index: 2000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(17,53,36,0.9); /* O verde escuro com transparência */
+    align-items: center; justify-content: center;
+    backdrop-filter: blur(5px);
+    padding: 1rem;
+}
+
+.modal.active { display: flex; }
+
+.modal-content {
+    background-color: var(--branco); border-radius: 20px;
+    width: 95%; max-width: 1000px;
+    position: relative; padding: 0;
+    overflow: hidden;
+    box-shadow: var(--sombra-forte);
+    animation: modalIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(-50px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.close-btn {
+    position: absolute; top: 20px; right: 25px;
+    color: var(--verde-primario); font-size: 40px; font-weight: 300;
+    cursor: pointer; z-index: 10;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.modal-body {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; /* 2 colunas no PC */
+    gap: 0;
+}
+
+.modal-gallery { 
+    width: 100%; 
+    height: 100%;
+    min-height: 400px; /* Garante que a foto fique bonita no PC */
+}
+
+/* MÁGICA DO OBJECT FIT NO MODAL AQUI */
+.modal-gallery img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center;
+}
+
+.modal-info {
+    padding: 3rem; display: flex; flex-direction: column;
+    justify-content: center;
+}
+
+.modal-tag {
+    text-transform: uppercase; letter-spacing: 1px; font-weight: 600;
+    color: var(--texto-secundario); font-size: 0.75rem; margin-bottom: 0.3rem;
+}
+
+.modal-info h3 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; }
+
+.modal-price-stock {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 1.5rem; margin-bottom: 1.5rem;
+}
+
+.modal-info .preco {
+    font-size: 2.2rem; color: var(--verde-primario); font-weight: 700;
+}
+
+.stock-status {
+    color: #b99e74; font-weight: 600; font-size: 0.9rem;
+}
+
+.modal-description-section h4, .modal-details h4 {
+    color: var(--verde-primario); text-transform: uppercase; font-size: 0.8rem;
+    letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 700;
+}
+
+.modal-description-section p { color: var(--texto-secundario); margin-bottom: 2rem; }
+
+.modal-details {
+    background-color: var(--fundo-creme); padding: 1.5rem; border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.modal-details p { color: var(--texto-secundario); font-size: 0.9rem; margin-bottom: 0.3rem; }
+.modal-details p strong { color: var(--texto-primario); }
+
+.modal-order-notice { color: var(--texto-secundario); font-size: 0.8rem; font-style: italic; margin-bottom: 2rem; }
+.modal-order-notice i { color: #b99e74; }
+
+.btn-whatsapp-large {
+    background-color: #25D366; color: var(--branco);
+    border: none; padding: 20px 30px; border-radius: 30px;
+    font-size: 1.1rem; font-weight: 700; cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.btn-whatsapp-large:hover { background-color: #128C7E; transform: translateY(-3px); box-shadow: var(--sombra-forte); }
+
+/* --- Aumentando o tamanho da Logo --- */
+.logo-container img {
+    height: 100px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+header.scrolled .logo-container img,
+header.rolagem .logo-container img {
+    height: 100px;
+}
+
+.logo-container img:hover {
+    transform: scale(1.05);
+}
+
+/* --- MENU MOBILE E RESPONSIVIDADE (CELULARES) --- */
+.mobile-menu-btn {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--verde-primario);
+    transition: transform 0.3s;
+    position: relative;
+    z-index: 1600;
+}
+
+/* Fundo escuro suave ao abrir o menu lateral */
+.menu-backdrop {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(3px);
+    z-index: 1400;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    /* Cabeçalho mais elegante e compacto no mobile */
+    header {
+        padding: 0.6rem 0;
+    }
+
+    header.scroll-active {
+        padding: 0.4rem 0;
+    }
+
+    .logo-container img,
+    header.scrolled .logo-container img,
+    header.rolagem .logo-container img,
+    header.scroll-active .logo-container img {
+        height: 55px !important;
+    }
+
+    .mobile-menu-btn { display: block; }
+    .nav-cta .btn-primary { display: none; }
+
+    .nav-list {
+        position: fixed; top: 0; right: -100%;
+        width: 78%; max-width: 320px; height: 100vh;
+        background-color: var(--fundo-creme);
+        flex-direction: column; justify-content: center; align-items: center;
+        gap: 2rem;
+        transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+        z-index: 1500;
+    }
+
+    .nav-list.active { right: 0; }
+
+    body.dark-theme .nav-list {
+        background-color: var(--fundo-creme-escura);
+        box-shadow: -5px 0 25px rgba(0,0,0,0.6);
+    }
+
+    .nav-list a { font-size: 1.3rem; font-weight: 600; }
+
+    /* Hero section sem bugs de parallax em smartphones */
+    .hero {
+        background-attachment: scroll;
+        min-height: 100svh;
+        height: auto;
+        padding: 8rem 0 5rem;
+    }
+
+    .hero-title { font-size: 2.3rem; }
+    .hero-subtitle { font-size: 1.05rem; margin-bottom: 2rem; }
+    .section-title { font-size: 1.9rem; }
+    
+    .cardapio, .historia, .encomenda { padding: 3.5rem 0; }
+    
+    /* Seção História 100% adaptada para 1 coluna */
+    .historia-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .historia-text {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .historia-quote {
+        position: static;
+        margin: 1.5rem auto 0;
+        max-width: 90%;
+        text-align: center;
+        box-shadow: var(--sombra-leve);
+    }
+
+    /* Cardápio e filtros */
+    .cardapio-filters { flex-wrap: wrap; gap: 0.5rem; }
+    .filter-btn { padding: 8px 14px; font-size: 0.82rem; }
+
+    /* Ajuste fino do Modal para celular (Transformando em 1 coluna) */
+    .modal-body {
+        grid-template-columns: 1fr; /* Coloca a foto em cima e o texto embaixo */
+    }
+    
+    .modal-gallery {
+        height: 240px; /* Tamanho perfeito da foto no celular */
+        min-height: auto;
+    }
+
+    .modal-info { padding: 1.4rem; }
+    .modal-info h3 { font-size: 1.7rem; }
+    .modal-info .preco { font-size: 1.5rem; }
+    .btn-whatsapp-large { padding: 15px; font-size: 0.95rem; }
+
+    /* Rodapé em 1 coluna */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+/* ==========================================
+   MODO ESCURO - VARIÁVEIS
+========================================== */
+body.dark-theme {
+    --fundo-creme: #1e1e1e;        
+    --fundo-creme-escura: #252525; 
+    --branco: #2d2d2d;             
+    --texto-primario: #f0f0f0;
+    --texto-secundario: #cccccc;
+    --verde-primario: #6eb971;     
+    --verde-escuro: #81c784;
+}
+
+body.dark-theme header,
+body.dark-theme header.scroll-active {
+    background-color: rgba(30, 30, 30, 0.95) !important; 
+}
+
+body.dark-theme .nav-list a {
+    color: #e0e0e0 !important; 
+}
+
+body.dark-theme .nav-list a:hover {
+    color: var(--verde-primario) !important;
+}
+
+body.dark-theme .theme-btn i {
+    color: #ffdb58;
+}
+
+/* --- ESTILOS DA GALERIA --- */
+.galeria { 
+    padding: 8rem 0; 
+    background-color: var(--fundo-creme-escura); 
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.galeria-item {
+    height: 250px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: var(--sombra-leve);
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.galeria-item img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular */
+        gap: 10px;
+    }
+    .galeria-item { height: 180px; }
+}
+
+/* --- CORREÇÃO DO CABEÇALHO NO MODO ESCURO --- */
+body.dark-theme header,
+body.dark-theme header.scroll-active {
+    background-color: rgba(30, 30, 30, 0.95) !important; /* Força o fundo grafite escuro */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+body.dark-theme .nav-list a {
+    color: #e0e0e0 !important; /* Deixa os links claros para dar leitura */
+}
+
+body.dark-theme .nav-list a:hover {
+    color: var(--verde-primario) !important;
+}
+
+/* --- ESTILOS DA NOVA PÁGINA DE GALERIA E TELA CHEIA --- */
+/* Botões de Ação do Cabeçalho da Galeria */
+.galeria-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--verde-primario);
+    font-size: 0.95rem;
+    padding: 8px 18px;
+    border-radius: 25px;
+    border: 1.5px solid var(--verde-primario);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background-color: var(--verde-primario);
+    color: var(--fundo-creme);
+}
+
+body.dark-theme .btn-voltar {
+    color: var(--verde-primario);
+    border-color: var(--verde-primario);
+}
+
+body.dark-theme .btn-voltar:hover {
+    background-color: var(--verde-primario);
+    color: #1e1e1e;
+}
+
+.galeria-page { 
+    padding: 10rem 0 4rem; /* Espaço maior em cima por causa do header */
+    min-height: 100vh; 
+}
+
+.galeria-page-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 20px; 
+}
+
+.galeria-page-grid img { 
+    width: 100%; 
+    height: 300px; 
+    object-fit: cover; 
+    border-radius: 12px; 
+    cursor: pointer; 
+    transition: transform 0.3s; 
+    box-shadow: var(--sombra-leve); 
+}
+
+.galeria-page-grid img:hover { 
+    transform: scale(1.05); 
+}
+
+@media (max-width: 768px) {
+    .galeria-page {
+        padding: 6.5rem 0 3rem;
+    }
+
+    .galeria-page-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .galeria-page-grid img {
+        height: 180px;
+    }
+
+    .btn-voltar {
+        padding: 6px 14px;
+        font-size: 0.85rem;
+    }
+
+    .close-fullscreen {
+        top: 15px;
+        right: 20px;
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 480px) {
+    .galeria-page-grid {
+        gap: 8px;
+    }
+
+    .galeria-page-grid img {
+        height: 150px;
+    }
+}
+
+.fullscreen-modal { 
+    display: none; position: fixed; z-index: 3000; left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(0,0,0,0.9); /* Fundo bem escuro para focar na foto */
+    align-items: center; justify-content: center; 
+    backdrop-filter: blur(5px); 
+}
+
+.fullscreen-modal.active { display: flex; }
+
+.fullscreen-modal img { 
+    max-width: 90%; max-height: 90vh; 
+    border-radius: 10px; 
+    object-fit: contain; /* Não corta a imagem na tela cheia */
+}
+
+.close-fullscreen { 
+    position: absolute; top: 20px; right: 30px; 
+    color: white; font-size: 50px; font-weight: 300; 
+    cursor: pointer; 
+}
+
+/* Estilo básico do botão de tema para não ficar com borda de botão comum */
+.theme-btn {
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Garante que o header mude de cor suavemente ao trocar o tema */
+header {
+    transition: background-color 0.4s ease, padding 0.3s ease;
+}
+
+body.dark-theme .theme-btn i {
+    color: #ffdb58; /* Cor de sol/ouro para o ícone no modo escuro */
+}
+
+
+/* ==========================================
+   NOVO FIX: MODAL ADAPTÁVEL E SEM CORTE DE IMAGEM
+========================================== */
+
+/* 1. Unifica a rolagem interna para o modal inteiro */
+.modal-content {
+    max-height: 90vh; /* Limita o modal a 90% da altura da tela */
+    overflow-y: auto; /* Cria uma barra de rolagem interna se o conteúdo for muito grande */
+    transition: max-width 0.3s ease; /* Transição suave se a largura mudar */
+}
+
+/* Deixa a barra de rolagem do modal mais fina e elegante */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-content::-webkit-scrollbar-track {
+    background: transparent; 
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--verde-primario); 
+    border-radius: 10px;
+}
+
+/* 2. Ajustes de Desktop (Duas colunas) para proporções corretas */
+@media (min-width: 769px) {
+    .modal-body {
+        grid-template-columns: 450px 1fr; /* Coluna da imagem com largura definida */
+        align-items: flex-start; /* Alinha o texto no topo */
+    }
+
+    .modal-gallery {
+        height: auto; /* Permite que o contêiner da imagem tenha altura baseada na imagem */
+    }
+
+    .modal-gallery img {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* NÃO CORTA A IMAGEM, mantém a proporção */
+    }
+}
+
+/* 3. Ajustes específicos para monitores mais "baixos" ( notebooks 1366x768) */
+@media (max-height: 800px) {
+    .modal-content {
+        max-width: 900px; /* Reduz um pouco a largura para caber melhor na tela mais baixa */
+    }
+}

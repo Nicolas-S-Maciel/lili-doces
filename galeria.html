@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Lili Doces & Mimos</title>
+    <link rel="icon" type="image/jpeg" href="assets/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+        <header class="scroll-active">
+        <div class="container header-container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Logo Lili Doces">
+                </a>
+            </div>
+            <nav class="nav-links">
+                <div class="galeria-nav-actions">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Alternar Tema">
+                        <i class="ri-moon-line" id="theme-icon"></i>
+                    </button>
+                    <a href="index.html" class="btn-voltar"><i class="ri-arrow-left-line"></i> <span>Voltar ao Início</span></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="galeria-page">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <span class="section-tag">Nosso Portfólio</span>
+                <h2 class="section-title">Nossas Criações</h2>
+                <p class="section-subtitle">Clique nas imagens para expandir e ver os detalhes.</p>
+            </div>
+            
+            <div class="galeria-page-grid">
+                <img src="./assets/img/galeria/1.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/2.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/3.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/4.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/5.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/6.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/7.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/8.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/9.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/10.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/11.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/12.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/13.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/14.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/15.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/16.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/17.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/18.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/19.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/20.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+                <img src="./assets/img/galeria/21.jpeg" alt="Doce" onclick="abrirFoto(this.src)">
+            </div>
+        </div>
+    </section>
+
+    <div id="fullscreen-modal" class="fullscreen-modal">
+        <span class="close-fullscreen" onclick="fecharFoto()">&times;</span>
+        <img id="fullscreen-img" src="" alt="Doce em tela cheia">
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const body = document.body;
+
+// 1. Ao carregar a página, verifica se já existe uma preferência salva
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme === 'dark') {
+    body.classList.add('dark-theme');
+    if (themeIcon) {
+        themeIcon.classList.replace('ri-moon-line', 'ri-sun-line'); // Muda ícone para Sol
+    }
+}
+
+// 2. Lógica para clicar e trocar o tema
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        
+        let theme = 'light';
+        if (body.classList.contains('dark-theme')) {
+            theme = 'dark';
+            themeIcon.classList.replace('ri-moon-line', 'ri-sun-line');
+        } else {
+            themeIcon.classList.replace('ri-sun-line', 'ri-moon-line');
+        }
+        
+        // Guarda a escolha no "cérebro" do navegador
+        localStorage.setItem('theme', theme);
+    });
+}
+
+        const modal = document.getElementById('fullscreen-modal');
+        const imgModal = document.getElementById('fullscreen-img');
+
+        function abrirFoto(src) {
+            imgModal.src = src;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Impede de rolar a página por trás
+        }
+
+        function fecharFoto() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Fecha a foto se clicar fora dela (no fundo escuro)
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) fecharFoto();
+        });
+    </script>
+</body>
+</html>
